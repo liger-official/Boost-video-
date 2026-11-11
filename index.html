@@ -3,90 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIGER - CoinBoost</title>
+<title>LIGER BOOST</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{background:#000;color:#fff;max-width:420px;margin:auto;min-height:100vh}
+body{
+  background:
+    radial-gradient(circle at 10% 10%, rgba(255,255,255,0.9) 0%, transparent 40%),
+    radial-gradient(circle at 90% 20%, rgba(255,0,80,0.25) 0%, transparent 45%),
+    radial-gradient(circle at 20% 90%, rgba(255,0,0,0.25) 0%, transparent 45%),
+    linear-gradient(135deg, #ffffff 0%, #ffe3e3 30%, #ff0033 70%, #8b0000 100%);
+  background-attachment:fixed;
+  color:#fff;max-width:420px;margin:auto;min-height:100vh
+}
+body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.35);z-index:-1}
 .top{padding:15px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,#ff0050,#ff8a00);position:sticky;top:0;z-index:10}
-.logo{font-weight:900;font-size:22px;letter-spacing:1px}
-.logo span{color:#000;background:gold;padding:2px 8px;border-radius:8px}
+.logo{font-weight:900;font-size:22px}.logo span{color:#000;background:gold;padding:2px 8px;border-radius:8px}
 .coin{background:#000;color:gold;padding:6px 12px;border-radius:20px;font-weight:900;border:2px solid gold}
-.page{display:none;padding:15px;padding-bottom:110px}
-.page.active{display:block}
-.card{background:#1a1a1a;padding:15px;border-radius:15px;margin-bottom:12px;border:1px solid #333}
+.page{display:none;padding:15px;padding-bottom:110px}.page.active{display:block}
+.card{background:rgba(255,255,255,0.92);color:#000;padding:15px;border-radius:15px;margin-bottom:12px;border:2px solid #ff0033;box-shadow:0 5px 20px rgba(255,0,51,0.3)}
+.card h2,.card h3{color:#cc0000}
 .btn{width:100%;padding:12px;border:0;border-radius:12px;background:linear-gradient(90deg,#ff0050,#ff8a00);color:#fff;font-weight:900;font-size:16px;margin-top:10px}
-.btn2{background:#00c853}
-input{width:100%;padding:12px;border-radius:10px;border:0;margin-top:10px;background:#2a2a2a;color:#fff}
-.task{display:flex;justify-content:space-between;align-items:center;background:#1a1a1a;padding:12px;border-radius:12px;margin-bottom:10px;border:1px solid #333}
+.btn2{background:#00c853}.btn:disabled{opacity:.5}
+input{width:100%;padding:12px;border-radius:10px;border:1px solid #ff0033;margin-top:10px;background:#fff;color:#000}
+.task{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.92);color:#000;padding:12px;border-radius:12px;margin-bottom:10px;border:2px solid #ff0033}
 .bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:420px;background:#111;display:flex;justify-content:space-around;padding:10px 0;border-top:2px solid #ff0050}
-.bottom div{text-align:center;font-size:12px;cursor:pointer;opacity:.6}
-.bottom div.active{opacity:1;color:#ff0050;font-weight:900}
-.power{ text-align:center;padding:10px;font-size:12px;color:#aaa;letter-spacing:1px}
-.power b{color:gold}
-.admin-row{display:flex;justify-content:space-between;background:#222;padding:10px;border-radius:10px;margin-bottom:8px}
-.small{font-size:12px;color:#aaa}
+.bottom div{text-align:center;font-size:12px;cursor:pointer;opacity:.6;color:#fff}.bottom div.active{opacity:1;color:#ff0050;font-weight:900}
+.power{text-align:center;padding:10px;font-size:12px;color:#fff;text-shadow:1px 1px 2px #000}.power b{color:gold}
+.admin-row{display:flex;justify-content:space-between;background:#ffe3e3;padding:10px;border-radius:10px;margin-bottom:8px;border:1px solid #ff0033;color:#000}
+.link{color:#cc0000;text-align:center;margin-top:10px;cursor:pointer;font-weight:900}
 </style>
 </head>
 <body>
 
-<div class="top">
-<div class="logo">🦁 LIGER <span>BOOST</span></div>
-<div class="coin">🪙 <span id="coins">100</span></div>
+<div class="top"><div class="logo">🦁 LIGER <span>BOOST</span></div><div class="coin">🪙 <span id="coins">100</span></div></div>
+
+<!-- LOGIN / SIGNUP -->
+<div id="login" class="page active">
+<div class="card" style="margin-top:20px;text-align:center"><h1>🦁 LIGER BOOST</h1><p>🔴 Welcome ⚪</p></div>
+<div class="card" id="loginBox">
+<h2>🔐 Login Karo</h2>
+<input id="loginUser" placeholder="Apni ID likho... ex: @ali_khan">
+<input id="loginPass" type="password" placeholder="Apna Password likho...">
+<button class="btn" onclick="login()">Login Karo</button>
+<p class="link" onclick="showSignup()">Nayi ID nahi hai? Signup Karo 👈</p>
+</div>
+<div class="card" id="signupBox" style="display:none">
+<h2>✨ Nayi ID Banao</h2>
+<input id="signUser" placeholder="Apni ID banao... ex: @ali_khan">
+<input id="signPass" type="password" placeholder="Apna Password set karo...">
+<input id="signPass2" type="password" placeholder="Password dobara likho...">
+<button class="btn btn2" onclick="signup()">ID Banao - Signup</button>
+<p class="link" onclick="showLogin()">Pehle se ID hai? Login Karo 👈</p>
+</div>
+<div class="power">POWERED BY <b>LIGER</b> 🦁</div>
 </div>
 
 <!-- HOME -->
-<div id="home" class="page active">
-<div class="card"><h2>Welcome to LIGER 🦁</h2><p>Task karo, coins kamao, video boost karo.</p></div>
-<div class="card"><h3>🎁 Daily Reward</h3><p>Aaj ka 50 coins lo</p><button class="btn btn2" onclick="addCoins(50)">Claim 50 Coins</button></div>
+<div id="home" class="page">
+<div class="card"><h2>Welcome <span id="welcomeUser">@liger_user</span> 🦁</h2><p>Task karo, coins kamao, video boost karo.</p><button class="btn" style="background:#333" onclick="logout()">Logout Karo</button></div>
+<div class="card"><h3>🎁 Daily Reward</h3><p>Aaj ka 50 coins - sirf 1 baar</p><button id="dailyBtn" class="btn btn2" onclick="dailyReward()">Claim 50 Coins</button></div>
 <div class="card"><h3>🔥 LIGER Special</h3><p>3 Task karo = 150 Bonus Coins</p></div>
 <div class="power">POWERED BY <b>LIGER</b> 🦁</div>
 </div>
 
 <!-- TASKS -->
 <div id="tasks" class="page">
-<h2>Tasks 🎯</h2><br>
-<div class="task"><span>▶️ Video Dekho<br><small>+20 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900" onclick="addCoins(20)">Start</button></div>
-<div class="task"><span>👤 Creator Follow<br><small>+30 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900" onclick="addCoins(30)">Start</button></div>
-<div class="task"><span>💬 Comment Karo<br><small>+25 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900" onclick="addCoins(25)">Start</button></div>
-<div class="task"><span>👥 Invite Karo<br><small>+100 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900" onclick="addCoins(100)">Invite</button></div>
+<h2 style="text-shadow:1px 1px 2px #000">Tasks 🎯</h2><br>
+<div class="task"><span>▶️ Video Dekho<br><small>+20 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900;color:#fff" onclick="doTask(this,20)">Start</button></div>
+<div class="task"><span>👤 Creator Follow<br><small>+30 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900;color:#fff" onclick="doTask(this,30)">Start</button></div>
+<div class="task"><span>💬 Comment Karo<br><small>+25 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900;color:#fff" onclick="doTask(this,25)">Start</button></div>
+<div class="task"><span>👥 Invite Karo<br><small>+100 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900;color:#fff" onclick="doTask(this,100)">Invite</button></div>
 <div class="power">POWERED BY <b>LIGER</b></div>
 </div>
 
 <!-- BOOST -->
 <div id="boost" class="page">
-<h2>Video Boost 🚀</h2><br>
-<div class="card"><p>APNI TIKTOK VIDEO Link DALO, BOOST LIST ME JAYEGE.</p>
+<h2 style="text-shadow:1px 1px 2px #000">Video Boost 🚀</h2><br>
+<div class="card"><p>Apni TikTok Video Link dalo.</p>
 <input id="link" placeholder="TikTok Video Link...">
 <p style="margin-top:10px">Price: <b>100 Coins</b></p>
 <button class="btn" onclick="boost()">Boost Karo - 100 Coins</button>
-<p id="msg" style="margin-top:10px;color:#00e676"></p></div>
-<div class="card"><h3>💎 Coins Khareedo</h3><p>500 Coins = Rs. 100 | 1000 Coins = Rs. 180</p><button class="btn btn2" onclick="addCoins(500)">500 Coins Lo</button></div>
+<p id="msg" style="margin-top:10px;color:#00c853;font-weight:900"></p></div>
+<div class="card"><h3>💎 Coins Kaise Len?</h3><p>Task Karo = Coins Milenge</p><p>Daily Reward = 50 Coins</p><p style="color:#cc0000;font-weight:900;margin-top:8px">Sab Free Hai! 🦁</p></div>
 <div class="power">POWERED BY <b>LIGER</b></div>
 </div>
 
 <!-- PROFILE -->
 <div id="profile" class="page">
-<div class="card"><h2>🦁 LIGER Profile</h2><p>Username: @liger_user</p><p>Coins: <b id="coins2">100</b></p><p>Tasks: <b id="done">0</b></p></div>
-<div class="card"><h3>🔐 Admin Panel</h3><input id="pass" type="password" placeholder="Admin Password likho..."><button class="btn" onclick="openAdmin()">Admin Open Karo</button></div>
+<div class="card"><h2>🦁 LIGER Profile</h2><p>Username: <b id="profileUser">@liger_user</b></p><p>Coins: <b id="coins2">100</b></p><p>Tasks: <b id="done">0</b></p><button class="btn" style="background:#333" onclick="logout()">Logout Karo</button></div>
+<div class="card"><h3>🔐 Admin Panel</h3><input id="pass" type="password" placeholder="Admin Password..."><button class="btn" onclick="openAdmin()">Admin Open Karo</button><p style="font-size:12px;color:#666;margin-top:5px">Admin Password: liger123</p></div>
 <div class="power">POWERED BY <b>LIGER</b> 🦁</div>
 </div>
 
 <!-- ADMIN -->
 <div id="admin" class="page">
-<h2>🦁 LIGER ADMIN PANEL</h2><br>
-<div class="card"><h3>📊 Aaj ka Hisab</h3><p>Total Users: <b>128</b></p><p>Total Coins Diye: <b>12,500</b></p><p>Total Boost Requests: <b id="boostCount">0</b></p><p>Tumhare Coins: <b id="coins3">100</b></p></div>
-<div class="card"><h3>👥 Users List</h3>
-<div class="admin-row"><span>@ali_khan<br><small>Coins: 450</small></span><button onclick="addCoins(100)">+100 Do</button></div>
-<div class="admin-row"><span>@sara_12<br><small>Coins: 200</small></span><button onclick="addCoins(100)">+100 Do</button></div>
-<div class="admin-row"><span>@usman_pk<br><small>Coins: 800</small></span><button onclick="addCoins(100)">+100 Do</button></div>
-</div>
-<div class="card"><h3>🚀 Boost Requests</h3><p id="boostList">Abhi koi request nahi hai.</p><button class="btn btn2" onclick="alert('Boost Approved ✅')">Approve Karo</button><button class="btn" style="background:#333" onclick="alert('Boost Rejected ❌')">Reject Karo</button></div>
-<div class="card"><h3>⚙️ Admin Controls</h3><button class="btn" onclick="addCoins(1000)">Khud ko 1000 Coins Do</button><button class="btn" style="background:#00c853" onclick="alert('App ON hai ✅')">App ON Karo</button><button class="btn" style="background:red" onclick="alert('App OFF hai ⛔')">App OFF Karo</button></div>
-<button class="btn" onclick="show('profile',document.querySelectorAll('.bottom div')[3])">Wapis Jao</button>
+<h2 style="text-shadow:1px 1px 2px #000">🦁 LIGER ADMIN PANEL</h2><br>
+<div class="card"><h3>📊 Hisab</h3><p>Total Users: <b id="totalUsers">1</b></p><p>Tumhare Coins: <b id="coins3">100</b></p></div>
+<div class="card"><h3>👥 Sab Users Ki List</h3><div id="userList"></div></div>
+<button class="btn" onclick="show('profile',null)">Wapis Jao</button>
 <div class="power">POWERED BY <b>LIGER</b> - OWNER ONLY</div>
 </div>
 
-<div class="bottom">
+<div class="bottom" id="bottomNav" style="display:none">
 <div class="active" onclick="show('home',this)">🏠<br>Home</div>
 <div onclick="show('tasks',this)">🎯<br>Tasks</div>
 <div onclick="show('boost',this)">🚀<br>Boost</div>
@@ -94,38 +112,21 @@ input{width:100%;padding:12px;border-radius:10px;border:0;margin-top:10px;backgr
 </div>
 
 <script>
-let coins=100, done=0, boosts=0;
-function show(id,el){
- document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
- document.getElementById(id).classList.add('active');
- document.querySelectorAll('.bottom div').forEach(d=>d.classList.remove('active'));
- if(el) el.classList.add('active');
-}
-function addCoins(n){
- coins+=n; done++;
- document.getElementById('coins').innerText=coins;
- document.getElementById('coins2').innerText=coins;
- document.getElementById('coins3').innerText=coins;
- document.getElementById('done').innerText=done;
- alert(n+" Congratulations 🤩! 🦁");
-}
-function boost(){
- let l=document.getElementById('link').value;
- if(!l){alert("TYPE LINK..!");return;}
- if(coins<100){alert("Coins kam hain!");return;}
- coins-=100; boosts++;
- document.getElementById('coins').innerText=coins;
- document.getElementById('coins2').innerText=coins;
- document.getElementById('coins3').innerText=coins;
- document.getElementById('boostCount').innerText=boosts;
- document.getElementById('boostList').innerText="New Request: "+l;
- document.getElementById('msg').innerText="✅ Request Admin ko chali gayi! Admin approve karega to boost hoga.";
-}
-function openAdmin(){
- let p=document.getElementById('pass').value;
- if(p=="liger123"){show('admin',null);alert("Welcome LIGER Boss 🦁");}
- else{alert("Ghalat Password!");}
-}
+let coins=100,done=0,dailyDone=false,currentUser="";
+let users=JSON.parse(localStorage.getItem('liger_users')||'{}');
+function saveUsers(){localStorage.setItem('liger_users',JSON.stringify(users));}
+function show(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.bottom div').forEach(d=>d.classList.remove('active'));if(el)el.classList.add('active');}
+function showSignup(){document.getElementById('loginBox').style.display='none';document.getElementById('signupBox').style.display='block';}
+function showLogin(){document.getElementById('signupBox').style.display='none';document.getElementById('loginBox').style.display='block';}
+function signup(){let u=document.getElementById('signUser').value.trim();let p=document.getElementById('signPass').value;let p2=document.getElementById('signPass2').value;if(!u||!p){alert("ID aur Password dono likho!");return;}if(p!==p2){alert("Dono Password same nahi hain!");return;}if(users[u]){alert("Ye ID pehle se hai!");return;}users[u]={pass:p,coins:100};saveUsers();alert("Mubarak ho! ID ban gayi: "+u+" Ab Login karo 🦁");showLogin();document.getElementById('loginUser').value=u;}
+function login(){let u=document.getElementById('loginUser').value.trim();let p=document.getElementById('loginPass').value;if(!users[u]){alert("Ye ID nahi mili! Pehle Signup karo.");return;}if(users[u].pass!==p){alert("Password ghalat hai!");return;}currentUser=u;coins=users[u].coins||100;document.getElementById('welcomeUser').innerText=u;document.getElementById('profileUser').innerText=u;update();document.getElementById('bottomNav').style.display='flex';show('home',document.querySelectorAll('.bottom div')[0]);alert("Welcome "+u+" 🦁");}
+function logout(){if(currentUser){users[currentUser].coins=coins;saveUsers();}currentUser="";document.getElementById('bottomNav').style.display='none';show('login',null);}
+function update(){document.getElementById('coins').innerText=coins;document.getElementById('coins2').innerText=coins;document.getElementById('coins3').innerText=coins;document.getElementById('done').innerText=done;if(currentUser){users[currentUser].coins=coins;saveUsers();}}
+function addCoins(n){coins+=n;done++;update();alert(n+" Coins mil gaye! 🦁");}
+function dailyReward(){if(dailyDone){alert("Aaj ka reward le chuke ho! Kal ana.");return;}dailyDone=true;document.getElementById('dailyBtn').disabled=true;document.getElementById('dailyBtn').innerText="Kal Ana ✅";addCoins(50);}
+function doTask(btn,n){btn.disabled=true;btn.innerText="Done ✅";addCoins(n);}
+function boost(){let l=document.getElementById('link').value;if(!l){alert("Pehle link dalo!");return;}if(coins<100){alert("Coins kam hain!");return;}coins-=100;update();document.getElementById('msg').innerText="✅ Boost Request ho gayi!";}
+function openAdmin(){let p=document.getElementById('pass').value;if(p=="liger123"){let list=document.getElementById('userList');let html="";let count=0;for(let u in users){count++;html+='<div class="admin-row"><span>'+u+'<br><small>Coins: '+users[u].coins+'</small></span><span>✅</span></div>';}if(!html)html="Abhi koi user nahi.";list.innerHTML=html;document.getElementById('totalUsers').innerText=count;show('admin',null);alert("Welcome LIGER Boss 🦁");}else{alert("Ghalat Password!");}}
 </script>
 </body>
-</html>
+ </html>
