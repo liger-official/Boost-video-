@@ -3,75 +3,65 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LIGER BOOST</title>
+<title>LIGER BOOST - REAL</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
-body{
-  background:
-    radial-gradient(circle at 10% 10%, rgba(255,255,255,0.9) 0%, transparent 40%),
-    radial-gradient(circle at 90% 20%, rgba(255,0,80,0.25) 0%, transparent 45%),
-    radial-gradient(circle at 20% 90%, rgba(255,0,0,0.25) 0%, transparent 45%),
-    linear-gradient(135deg, #ffffff 0%, #ffe3e3 30%, #ff0033 70%, #8b0000 100%);
-  background-attachment:fixed;
-  color:#fff;max-width:420px;margin:auto;min-height:100vh
-}
+body{background:radial-gradient(circle at 10% 10%, rgba(255,255,255,0.9) 0%, transparent 40%),radial-gradient(circle at 90% 20%, rgba(255,0,80,0.25) 0%, transparent 45%),linear-gradient(135deg,#ffffff 0%,#ffe3e3 30%,#ff0033 70%,#8b0000 100%);background-attachment:fixed;color:#fff;max-width:420px;margin:auto;min-height:100vh}
 body::before{content:"";position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.35);z-index:-1}
 .top{padding:15px;display:flex;justify-content:space-between;align-items:center;background:linear-gradient(90deg,#ff0050,#ff8a00);position:sticky;top:0;z-index:10}
 .logo{font-weight:900;font-size:22px}.logo span{color:#000;background:gold;padding:2px 8px;border-radius:8px}
 .coin{background:#000;color:gold;padding:6px 12px;border-radius:20px;font-weight:900;border:2px solid gold}
 .page{display:none;padding:15px;padding-bottom:110px}.page.active{display:block}
-.card{background:rgba(255,255,255,0.92);color:#000;padding:15px;border-radius:15px;margin-bottom:12px;border:2px solid #ff0033;box-shadow:0 5px 20px rgba(255,0,51,0.3)}
+.card{background:rgba(255,255,255,0.95);color:#000;padding:15px;border-radius:15px;margin-bottom:12px;border:2px solid #ff0033;box-shadow:0 5px 20px rgba(255,0,51,0.3)}
 .card h2,.card h3{color:#cc0000}
 .btn{width:100%;padding:12px;border:0;border-radius:12px;background:linear-gradient(90deg,#ff0050,#ff8a00);color:#fff;font-weight:900;font-size:16px;margin-top:10px}
 .btn2{background:#00c853}.btn:disabled{opacity:.5}
 input{width:100%;padding:12px;border-radius:10px;border:1px solid #ff0033;margin-top:10px;background:#fff;color:#000}
-.task{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.92);color:#000;padding:12px;border-radius:12px;margin-bottom:10px;border:2px solid #ff0033}
+.task{display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,0.95);color:#000;padding:12px;border-radius:12px;margin-bottom:10px;border:2px solid #ff0033}
 .bottom{position:fixed;bottom:0;left:50%;transform:translateX(-50%);width:100%;max-width:420px;background:#111;display:flex;justify-content:space-around;padding:10px 0;border-top:2px solid #ff0050}
 .bottom div{text-align:center;font-size:12px;cursor:pointer;opacity:.6;color:#fff}.bottom div.active{opacity:1;color:#ff0050;font-weight:900}
 .power{text-align:center;padding:10px;font-size:12px;color:#fff;text-shadow:1px 1px 2px #000}.power b{color:gold}
 .admin-row{display:flex;justify-content:space-between;background:#ffe3e3;padding:10px;border-radius:10px;margin-bottom:8px;border:1px solid #ff0033;color:#000}
 .link{color:#cc0000;text-align:center;margin-top:10px;cursor:pointer;font-weight:900}
+.boost-item{background:#fff;border:2px solid #ff0033;border-radius:12px;padding:12px;margin-bottom:10px;color:#000}
+.boost-item a{color:#cc0000;font-weight:900;word-break:break-all;font-size:13px}
 </style>
 </head>
 <body>
 
 <div class="top"><div class="logo">🦁 LIGER <span>BOOST</span></div><div class="coin">🪙 <span id="coins">100</span></div></div>
 
-<!-- LOGIN / SIGNUP -->
+<!-- LOGIN -->
 <div id="login" class="page active">
-<div class="card" style="margin-top:20px;text-align:center"><h1>🦁 LIGER BOOST</h1><p>🔴 Welcome ⚪</p></div>
-<div class="card" id="loginBox">
-<h2>🔐 Login Karo</h2>
-<input id="loginUser" placeholder="Apni ID likho... ex: @ali_khan">
-<input id="loginPass" type="password" placeholder="Apna Password likho...">
+<div class="card" style="margin-top:20px;text-align:center"><h1>🦁 LIGER BOOST</h1><p>🔴 REAL BOOST ⚪</p></div>
+<div class="card" id="loginBox"><h2>🔐 Login Karo</h2>
+<input id="loginUser" placeholder="Apni ID likho...">
+<input id="loginPass" type="password" placeholder="Apna Password...">
 <button class="btn" onclick="login()">Login Karo</button>
-<p class="link" onclick="showSignup()">Nayi ID nahi hai? Signup Karo 👈</p>
-</div>
-<div class="card" id="signupBox" style="display:none">
-<h2>✨ Nayi ID Banao</h2>
-<input id="signUser" placeholder="Apni ID banao... ex: @ali_khan">
-<input id="signPass" type="password" placeholder="Apna Password set karo...">
-<input id="signPass2" type="password" placeholder="Password dobara likho...">
+<p class="link" onclick="showSignup()">Nayi ID nahi hai? Signup Karo 👈</p></div>
+<div class="card" id="signupBox" style="display:none"><h2>✨ Nayi ID Banao</h2>
+<input id="signUser" placeholder="Apni ID banao...">
+<input id="signPass" type="password" placeholder="Password set karo...">
+<input id="signPass2" type="password" placeholder="Password dobara...">
 <button class="btn btn2" onclick="signup()">ID Banao - Signup</button>
-<p class="link" onclick="showLogin()">Pehle se ID hai? Login Karo 👈</p>
-</div>
+<p class="link" onclick="showLogin()">Pehle se ID hai? Login Karo 👈</p></div>
 <div class="power">POWERED BY <b>LIGER</b> 🦁</div>
 </div>
 
 <!-- HOME -->
 <div id="home" class="page">
-<div class="card"><h2>Welcome <span id="welcomeUser">@liger_user</span> 🦁</h2><p>Task karo, coins kamao, video boost karo.</p><button class="btn" style="background:#333" onclick="logout()">Logout Karo</button></div>
+<div class="card"><h2>Welcome <span id="welcomeUser">@liger_user</span> 🦁</h2><p>Task karo, coins kamao, video boost karo.</p><p style="margin-top:8px">🔥 <b>Live Boost List:</b> <span id="liveCount">0</span> videos boost pe hain</p><button class="btn" style="background:#333" onclick="logout()">Logout Karo</button></div>
 <div class="card"><h3>🎁 Daily Reward</h3><p>Aaj ka 50 coins - sirf 1 baar</p><button id="dailyBtn" class="btn btn2" onclick="dailyReward()">Claim 50 Coins</button></div>
-<div class="card"><h3>🔥 LIGER Special</h3><p>3 Task karo = 150 Bonus Coins</p></div>
+<div class="card"><h3>🚀 REAL Kaam Kaise Hoga?</h3><p>1. Tum Boost karoge<br>2. Tumhari video sab ko Tasks me dikhegi<br>3. Log dekhenge = Tumko REAL View milega</p></div>
 <div class="power">POWERED BY <b>LIGER</b> 🦁</div>
 </div>
 
 <!-- TASKS -->
 <div id="tasks" class="page">
-<h2 style="text-shadow:1px 1px 2px #000">Tasks 🎯</h2><br>
+<h2 style="text-shadow:1px 1px 2px #000">Tasks 🎯 - Dusron Ki Video Dekho</h2><br>
+<div class="card"><h3>📺 Boost Wali Videos</h3><p>Neeche wali video dekho, +30 Coins lo. Jitne log dekhenge, utne views us bande ko milenge.</p></div>
+<div id="boostListTasks"></div>
 <div class="task"><span>▶️ Video Dekho<br><small>+20 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900;color:#fff" onclick="doTask(this,20)">Start</button></div>
-<div class="task"><span>👤 Creator Follow<br><small>+30 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900;color:#fff" onclick="doTask(this,30)">Start</button></div>
-<div class="task"><span>💬 Comment Karo<br><small>+25 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900;color:#fff" onclick="doTask(this,25)">Start</button></div>
 <div class="task"><span>👥 Invite Karo<br><small>+100 Coins</small></span><button class="btn2" style="padding:8px 15px;border-radius:10px;border:0;font-weight:900;color:#fff" onclick="doTask(this,100)">Invite</button></div>
 <div class="power">POWERED BY <b>LIGER</b></div>
 </div>
@@ -79,18 +69,19 @@ input{width:100%;padding:12px;border-radius:10px;border:1px solid #ff0033;margin
 <!-- BOOST -->
 <div id="boost" class="page">
 <h2 style="text-shadow:1px 1px 2px #000">Video Boost 🚀</h2><br>
-<div class="card"><p>Apni TikTok Video Link dalo.</p>
+<div class="card"><p>Apni TikTok Video Link dalo. Tumhari video sab ke Tasks me jayegi.</p>
 <input id="link" placeholder="TikTok Video Link...">
 <p style="margin-top:10px">Price: <b>100 Coins</b></p>
 <button class="btn" onclick="boost()">Boost Karo - 100 Coins</button>
 <p id="msg" style="margin-top:10px;color:#00c853;font-weight:900"></p></div>
-<div class="card"><h3>💎 Coins Kaise Len?</h3><p>Task Karo = Coins Milenge</p><p>Daily Reward = 50 Coins</p><p style="color:#cc0000;font-weight:900;margin-top:8px">Sab Free Hai! 🦁</p></div>
+<div class="card"><h3>📋 Meri Boosted Videos</h3><div id="myBoosts">Abhi koi video boost nahi ki.</div></div>
+<div class="card"><h3>💎 Coins Kaise Len?</h3><p>Dusron ki video dekho = Coins</p><p>Daily Reward = 50 Coins</p><p style="color:#cc0000;font-weight:900;margin-top:8px">Sab Free Hai! 🦁</p></div>
 <div class="power">POWERED BY <b>LIGER</b></div>
 </div>
 
 <!-- PROFILE -->
 <div id="profile" class="page">
-<div class="card"><h2>🦁 LIGER Profile</h2><p>Username: <b id="profileUser">@liger_user</b></p><p>Coins: <b id="coins2">100</b></p><p>Tasks: <b id="done">0</b></p><button class="btn" style="background:#333" onclick="logout()">Logout Karo</button></div>
+<div class="card"><h2>🦁 LIGER Profile</h2><p>Username: <b id="profileUser">@liger_user</b></p><p>Coins: <b id="coins2">100</b></p><p>Tasks: <b id="done">0</b></p><p>Meri Videos Boost Pe: <b id="myCount">0</b></p><button class="btn" style="background:#333" onclick="logout()">Logout Karo</button></div>
 <div class="card"><h3>🔐 Admin Panel</h3><input id="pass" type="password" placeholder="Admin Password..."><button class="btn" onclick="openAdmin()">Admin Open Karo</button><p style="font-size:12px;color:#666;margin-top:5px">Admin Password: liger123</p></div>
 <div class="power">POWERED BY <b>LIGER</b> 🦁</div>
 </div>
@@ -98,8 +89,9 @@ input{width:100%;padding:12px;border-radius:10px;border:1px solid #ff0033;margin
 <!-- ADMIN -->
 <div id="admin" class="page">
 <h2 style="text-shadow:1px 1px 2px #000">🦁 LIGER ADMIN PANEL</h2><br>
-<div class="card"><h3>📊 Hisab</h3><p>Total Users: <b id="totalUsers">1</b></p><p>Tumhare Coins: <b id="coins3">100</b></p></div>
-<div class="card"><h3>👥 Sab Users Ki List</h3><div id="userList"></div></div>
+<div class="card"><h3>📊 Hisab</h3><p>Total Users: <b id="totalUsers">1</b></p><p>Total Boost Videos: <b id="totalBoosts">0</b></p><p>Tumhare Coins: <b id="coins3">100</b></p></div>
+<div class="card"><h3>🚀 Sab Boost Videos</h3><div id="adminBoostList"></div></div>
+<div class="card"><h3>👥 Sab Users</h3><div id="userList"></div></div>
 <button class="btn" onclick="show('profile',null)">Wapis Jao</button>
 <div class="power">POWERED BY <b>LIGER</b> - OWNER ONLY</div>
 </div>
@@ -114,19 +106,26 @@ input{width:100%;padding:12px;border-radius:10px;border:1px solid #ff0033;margin
 <script>
 let coins=100,done=0,dailyDone=false,currentUser="";
 let users=JSON.parse(localStorage.getItem('liger_users')||'{}');
+let boosts=JSON.parse(localStorage.getItem('liger_boosts')||'[]');
 function saveUsers(){localStorage.setItem('liger_users',JSON.stringify(users));}
-function show(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.bottom div').forEach(d=>d.classList.remove('active'));if(el)el.classList.add('active');}
+function saveBoosts(){localStorage.setItem('liger_boosts',JSON.stringify(boosts));}
+function show(id,el){document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('.bottom div').forEach(d=>d.classList.remove('active'));if(el)el.classList.add('active');if(id=='tasks')renderTasks();if(id=='boost')renderMyBoosts();if(id=='home')updateCounts();}
 function showSignup(){document.getElementById('loginBox').style.display='none';document.getElementById('signupBox').style.display='block';}
 function showLogin(){document.getElementById('signupBox').style.display='none';document.getElementById('loginBox').style.display='block';}
-function signup(){let u=document.getElementById('signUser').value.trim();let p=document.getElementById('signPass').value;let p2=document.getElementById('signPass2').value;if(!u||!p){alert("ID aur Password dono likho!");return;}if(p!==p2){alert("Dono Password same nahi hain!");return;}if(users[u]){alert("Ye ID pehle se hai!");return;}users[u]={pass:p,coins:100};saveUsers();alert("Mubarak ho! ID ban gayi: "+u+" Ab Login karo 🦁");showLogin();document.getElementById('loginUser').value=u;}
+function signup(){let u=document.getElementById('signUser').value.trim();let p=document.getElementById('signPass').value;let p2=document.getElementById('signPass2').value;if(!u||!p){alert("ID aur Password dono likho!");return;}if(p!==p2){alert("Dono Password same nahi!");return;}if(users[u]){alert("Ye ID pehle se hai!");return;}users[u]={pass:p,coins:100};saveUsers();alert("Mubarak ho! ID ban gayi: "+u);showLogin();document.getElementById('loginUser').value=u;}
 function login(){let u=document.getElementById('loginUser').value.trim();let p=document.getElementById('loginPass').value;if(!users[u]){alert("Ye ID nahi mili! Pehle Signup karo.");return;}if(users[u].pass!==p){alert("Password ghalat hai!");return;}currentUser=u;coins=users[u].coins||100;document.getElementById('welcomeUser').innerText=u;document.getElementById('profileUser').innerText=u;update();document.getElementById('bottomNav').style.display='flex';show('home',document.querySelectorAll('.bottom div')[0]);alert("Welcome "+u+" 🦁");}
 function logout(){if(currentUser){users[currentUser].coins=coins;saveUsers();}currentUser="";document.getElementById('bottomNav').style.display='none';show('login',null);}
-function update(){document.getElementById('coins').innerText=coins;document.getElementById('coins2').innerText=coins;document.getElementById('coins3').innerText=coins;document.getElementById('done').innerText=done;if(currentUser){users[currentUser].coins=coins;saveUsers();}}
+function update(){document.getElementById('coins').innerText=coins;document.getElementById('coins2').innerText=coins;document.getElementById('coins3').innerText=coins;document.getElementById('done').innerText=done;if(currentUser){users[currentUser].coins=coins;saveUsers();}updateCounts();}
+function updateCounts(){document.getElementById('liveCount').innerText=boosts.length;document.getElementById('totalBoosts').innerText=boosts.length;let my=boosts.filter(b=>b.user==currentUser).length;document.getElementById('myCount').innerText=my;}
 function addCoins(n){coins+=n;done++;update();alert(n+" Coins mil gaye! 🦁");}
-function dailyReward(){if(dailyDone){alert("Aaj ka reward le chuke ho! Kal ana.");return;}dailyDone=true;document.getElementById('dailyBtn').disabled=true;document.getElementById('dailyBtn').innerText="Kal Ana ✅";addCoins(50);}
+function dailyReward(){if(dailyDone){alert("Aaj ka reward le chuke ho!");return;}dailyDone=true;document.getElementById('dailyBtn').disabled=true;document.getElementById('dailyBtn').innerText="Kal Ana ✅";addCoins(50);}
 function doTask(btn,n){btn.disabled=true;btn.innerText="Done ✅";addCoins(n);}
-function boost(){let l=document.getElementById('link').value;if(!l){alert("Pehle link dalo!");return;}if(coins<100){alert("Coins kam hain!");return;}coins-=100;update();document.getElementById('msg').innerText="✅ Boost Request ho gayi!";}
-function openAdmin(){let p=document.getElementById('pass').value;if(p=="liger123"){let list=document.getElementById('userList');let html="";let count=0;for(let u in users){count++;html+='<div class="admin-row"><span>'+u+'<br><small>Coins: '+users[u].coins+'</small></span><span>✅</span></div>';}if(!html)html="Abhi koi user nahi.";list.innerHTML=html;document.getElementById('totalUsers').innerText=count;show('admin',null);alert("Welcome LIGER Boss 🦁");}else{alert("Ghalat Password!");}}
+function boost(){let l=document.getElementById('link').value.trim();if(!l){alert("Pehle link dalo!");return;}if(coins<100){alert("Coins kam hain! Dusron ki video dekho.");return;}coins-=100;update();boosts.push({user:currentUser,link:l,views:0,time:Date.now()});saveBoosts();renderMyBoosts();document.getElementById('msg').innerText="✅ REAL BOOST ON! Tumhari video ab sab ke Tasks me chali gayi!";alert("REAL BOOST ON! Ab dusre log tumhari video dekhenge.");}
+function renderMyBoosts(){let my=boosts.filter(b=>b.user==currentUser);let el=document.getElementById('myBoosts');if(!my.length){el.innerHTML="Abhi koi video boost nahi ki.";return;}el.innerHTML=my.map(b=>'<div class="boost-item"><b>'+b.user+'</b><br><a href="'+b.link+'" target="_blank">'+b.link+'</a><br>Views Miley: <b>'+b.views+'</b></div>').join('');}
+function renderTasks(){let el=document.getElementById('boostListTasks');if(!boosts.length){el.innerHTML='<div class="card">Abhi koi video boost pe nahi hai. Tum pehle boost karo!</div>';return;}el.innerHTML=boosts.map((b,i)=>'<div class="boost-item"><b>'+b.user+' ki Video</b><br><a href="'+b.link+'" target="_blank">'+b.link+'</a><br>Views: <b>'+b.views+'</b><br><button class="btn btn2" onclick="watchVideo('+i+',this)">Video Dekho - +30 Coins</button></div>').join('');}
+function watchVideo(i,btn){let b=boosts[i];if(b.user==currentUser){alert("Apni khud ki video pe coins nahi milenge!");return;}window.open(b.link,'_blank');b.views++;saveBoosts();btn.disabled=true;btn.innerText="Dekh Liya ✅";addCoins(30);renderTasks();}
+function openAdmin(){let p=document.getElementById('pass').value;if(p=="liger123"){let list=document.getElementById('userList');let html="";let count=0;for(let u in users){count++;html+='<div class="admin-row"><span>'+u+'<br><small>Coins: '+users[u].coins+'</small></span><span>✅</span></div>';}list.innerHTML=html||"Koi user nahi.";document.getElementById('totalUsers').innerText=count;document.getElementById('adminBoostList').innerHTML=boosts.length?boosts.map(b=>'<div class="admin-row"><span>'+b.user+'<br><small>Views: '+b.views+'</small></span></div>').join(''):"Koi boost nahi.";updateCounts();show('admin',null);alert("Welcome LIGER Boss 🦁");}else{alert("Ghalat Password!");}}
+updateCounts();
 </script>
 </body>
- </html>
+                                                                                                </html>
