@@ -55,7 +55,7 @@ input{width:100%;padding:12px;border-radius:10px;border:0;margin-top:10px;backgr
 <!-- BOOST -->
 <div id="boost" class="page">
 <h2>Video Boost 🚀</h2><br>
-<div class="card"><p>Apni TikTok Video Link dalo, Boost List me jayegi.</p>
+<div class="card"><p>APNI TIKTOK VIDEO Link DALO, BOOST LIST ME JAYEGE.</p>
 <input id="link" placeholder="TikTok Video Link...">
 <p style="margin-top:10px">Price: <b>100 Coins</b></p>
 <button class="btn" onclick="boost()">Boost Karo - 100 Coins</button>
@@ -107,11 +107,11 @@ function addCoins(n){
  document.getElementById('coins2').innerText=coins;
  document.getElementById('coins3').innerText=coins;
  document.getElementById('done').innerText=done;
- alert(n+" Coins mil gaye! 🦁");
+ alert(n+" Congratulations 🤩! 🦁");
 }
 function boost(){
  let l=document.getElementById('link').value;
- if(!l){alert("Pehle link dalo!");return;}
+ if(!l){alert("TYPE LINK..!");return;}
  if(coins<100){alert("Coins kam hain!");return;}
  coins-=100; boosts++;
  document.getElementById('coins').innerText=coins;
